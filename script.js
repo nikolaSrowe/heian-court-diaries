@@ -1,11 +1,11 @@
 const scroller = scrollama();
 
 const images = [
-  "/api/placeholder/800/600",
-  "/api/placeholder/800/600", 
-  "/api/placeholder/800/600",
-  "/api/placeholder/800/600",
-  "/api/placeholder/800/600"
+  "assets/main-art.jpg",
+  "assets/murasaki-tale-genji.jpg", 
+  "assets/Izumi_Shikibu.png",
+  "assets/lady-sarashina.jpg",
+  "assets/heian-art.jpg"
 ];
 
 function init() {
