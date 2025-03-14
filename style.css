@@ -1,154 +1,307 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f8f8;
-  }
-  
-  header {
-    padding: 5rem;
-    text-align: center;
-    background-color: #F2EBDE;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative; 
-    z-index: 10; 
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .intro {
-    max-width: 80%;
-    margin: 0 auto;
-    font-size: 1.2rem;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #3C3532;
+}
+
+header {
+  padding: 5rem;
+  text-align: center;
+  background-color: #F2EBDE;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  max-width: 80%;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.intro + .intro {
+  margin-top: 1.5rem; 
+}
+
+/* Red Band Section */
+.big-image {
+  width: 100%;
+  background-color: #C82E44;
+  padding: 2rem 0;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.big-image img {
+  display: block;
+  max-width: 800px;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 900px) {
+  .big-image img {
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .big-image {
+    padding: 1rem 0;
+  }
+  .big-image img {
+    max-height: 50vh;
+  }
+}
+
+.scroll-container {
+  position: relative;
+  padding: 1rem;
+  margin-top: 2rem;
+  display: block;
+  clear: both;
+}
+
+.scroll-graphic {
+  position: sticky;
+  top: 40vh;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #F2EBDE;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.scroll-graphic.is-active {
+  opacity: 1;
+}
+
+.graphic-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.scroll-steps {
+  position: relative;
+  padding: 0 1rem;
+  max-width: 30rem;
+  margin: 0 auto;
+  z-index: 5;
+}
+
+.step {
+  margin: 80vh 0;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
+  position: relative;
+}
+
+.step:first-child {
+  margin-top: 40vh;
+}
+
+.step:last-child {
+  margin-bottom: 40vh;
+}
+
+.step.is-active {
+  opacity: 1;
+  transform: scale(1.02);
+  transition: opacity 0.5s ease, transform 0.3s ease;
+}
+
+.step-heading {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.step-content {
+  font-size: 1.rem;
+}
+
+.step-content + .step-content {
+  margin-top: 1.5rem; 
+}
+
+.references {
+  padding: 4rem 2rem;
+  background-color: #F2EBDE;
+}
+
+.references-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.references-heading {
+  font-size: 2rem;
+  color: #3C3532;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #3C3532;
+  padding-bottom: 0.5rem;
+}
+
+.citation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.citation-item {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: 4px solid #3C3532;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.citation-item:hover {
+  transform: translateX(10px);
+  box-shadow: 4px 4px 0 #3C3532;
+}
+
+.citation-author {
+  font-weight: 600;
+  color: #2D2D2D;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.citation-title {
+  color: #1A1A1A;
+  font-style: italic;
+}
+
+.citation-publisher {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.citation-year {
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* Updated Citation Link Styles */
+.citation-link {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  color: #3C3532;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link-icon {
+  font-size: 1.2em;
+  padding: 0.3rem;
+}
+
+.url-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: #3C3532;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8em;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.citation-link:hover .url-tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .citation-link {
+    position: static;
+    display: inline-flex;
+    margin-left: 0.75rem;
+    transform: none;
+  }
+  
+  .url-tooltip {
+    display: none;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 900px) {
   .scroll-container {
-    position: relative;
-    padding: 1rem;
-    margin-top: 2rem;
-    display: block;
-    clear: both;
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    align-items: flex-start;
   }
 
   .scroll-graphic {
+    flex: 1;
+    height: 80vh;
     position: sticky;
-    top: 40vh;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #fff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
-    z-index: 1; 
+    top: 10vh;
+    transform: none;
+    align-self: flex-start;
+    margin-top: 0;
   }
-  
-  .scroll-graphic.is-active {
-    opacity: 1;
-  }
-  
-  .graphic-img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    transition: transform 0.5s ease;
-    position: relative;
-  }
-  
 
   .scroll-steps {
-    position: relative;
-    padding: 0 1rem;
-    max-width: 30rem;
-    margin: 0 auto;
-    z-index: 5; 
+    flex: 1;
+    margin-left: 2rem;
   }
-  
+
   .step {
-    margin: 80vh 0;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    opacity: 0.2;
-    transition: opacity 0.5s ease;
-    position: relative; 
+    margin: 60vh 0;
   }
-  
-  .step:first-child {
-    margin-top: 40vh;
-  }
-  
-  .step:last-child {
-    margin-bottom: 40vh;
-  }
-  
-  .step.is-active {
-    opacity: 1;
-    transform: scale(1.02);
-    transition: opacity 0.5s ease, transform 0.3s ease;
-  }
-  
-  .step-heading {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-  }
-  
-  .step-content {
-    font-size: 1.1rem;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 1rem 1rem;
-    background-color: #fff;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    position: relative; 
-    z-index: 10; /
-  }
-  
-  /* Responsive adjustments */
-  @media (min-width: 900px) {
-    .scroll-container {
-      display: flex;
-      flex-direction: row; /* Explicitly set flex direction */
-      max-width: 1200px;
-      margin: 2rem auto 0; /* Added top margin */
-      align-items: flex-start; /* Align items at the top */
-    }
-    
-    .scroll-graphic {
-      flex: 1;
-      height: 80vh;
-      position: sticky;
-      top: 10vh; /* Position from top of viewport */
-      transform: none; /* Remove the transform that might be causing issues */
-      align-self: flex-start; /* Align at the top of flex container */
-      margin-top: 0; /* Reset any margins */
-    }
-    
-    .scroll-steps {
-      flex: 1;
-      margin-left: 2rem;
-    }
-    
-    .step {
-      margin: 60vh 0;
-    }
-  }
+}
