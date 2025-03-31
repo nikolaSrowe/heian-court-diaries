@@ -29,12 +29,23 @@ function handleStepEnter(response) {
   graphic.src = images[index];
   document.querySelector('.scroll-graphic').classList.add('is-active');
   
-  // Add an animation effect when transitioning between images
+ 
   graphic.style.transform = 'scale(1.03)';
   setTimeout(() => {
     graphic.style.transform = 'scale(1)';
   }, 300);
 }
+
+function updateProgressBar() {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+}
+
+window.onscroll = function() {
+  updateProgressBar();
+};
 
 function handleStepExit(response) {
   response.element.classList.remove('is-active');

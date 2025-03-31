@@ -236,6 +236,21 @@ h1 {
   padding: 0.3rem;
 }
 
+.progress-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 99;
+}
+
+.progress-bar {
+  height: 5px;
+  background: #C82E44;
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
 .url-tooltip {
   position: absolute;
   bottom: 100%;
