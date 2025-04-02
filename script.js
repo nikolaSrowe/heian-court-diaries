@@ -84,3 +84,71 @@ function handleHeaderScroll() {
 window.addEventListener('scroll', handleHeaderScroll);
 
 document.addEventListener('DOMContentLoaded', init);
+
+function setupScrollDots() {
+  const steps = document.querySelectorAll('.step');
+  const container = document.getElementById('scrollDots');
+  steps.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    container.appendChild(dot);
+  });
+}
+
+function updateScrollDots() {
+  const steps = document.querySelectorAll('.step');
+  const dots = document.querySelectorAll('.scroll-progress-dots .dot');
+  let activeIndex = 0;
+
+  steps.forEach((step, i) => {
+    const rect = step.getBoundingClientRect();
+    const triggerPoint = window.innerHeight * 0.2; // 20% from top
+    if (rect.top <= triggerPoint) {
+      activeIndex = i;
+    }
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === activeIndex);
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded', setupScrollDots);
+window.addEventListener('scroll', updateScrollDots);
+
+function setupQuoteCarousels() {
+  const carousels = document.querySelectorAll('.quote-carousel');
+
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector('.quote-track');
+    const slides = carousel.querySelectorAll('.quote-slide');
+    const dotsContainer = carousel.querySelector('.quote-dots');
+    let currentIndex = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+    });
+
+    const update = () => {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      const dots = dotsContainer.querySelectorAll('span');
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    };
+
+    carousel.querySelector('.quote-nav.prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      update();
+    });
+
+    carousel.querySelector('.quote-nav.next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      update();
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupQuoteCarousels);
+

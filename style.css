@@ -28,7 +28,7 @@ h1 {
 .intro {
   max-width: 80%;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .intro + .intro {
@@ -121,7 +121,7 @@ h1 {
 .step {
   margin: 80vh 0;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #f7f2ea; /*rgba(255, 255, 255, 0.9*/
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   opacity: 0.2;
@@ -144,9 +144,11 @@ h1 {
 }
 
 .step-heading {
-  font-size: 1.8rem;
+  font-size: 2.05rem;
   margin-bottom: 1rem;
   color: #1a1a1a;
+  font-family: 'Noto Serif JP', serif;
+
 }
 
 .step-content {
@@ -323,24 +325,50 @@ h1 {
 
 .site-header h1 {
   font-size: 2.5rem;
-  color: #C82E44;
+  color: #3C3532;
   margin-bottom: 0.5rem;
   font-family: 'Noto Serif JP', serif;
 }
 
 .subtitle {
   font-size: 1.5rem;
-  color: #3C3532;
+  color: #C82E44;
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
 
 .year-display {
   font-size: 1.8rem;
-  color: #C82E44;
+  color: #3C3532;
   font-weight: 600;
   letter-spacing: 2px;
 }
+
+.scroll-progress-dots {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.dot.active {
+  background-color: #C82E44;
+  transform: scale(1.2);
+}
+
 
 @media (max-width: 768px) {
   .citation-link {
@@ -366,6 +394,82 @@ h1 {
   }
 }
 
+.quote-carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #F2EBDE; /*rgba(255, 255, 255, 0.92)*/
+  padding: 2rem 3rem 3rem;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* new subtle atmospheric shadow */
+  box-shadow: 0 6px 24px rgba(60, 53, 50, 0.15), 0 0 0 1px rgba(200, 46, 68, 0.1);
+}
+
+.quote-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.quote-slide {
+  flex: 0 0 100%;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  white-space: normal;
+}
+
+.quote-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  background: transparent;
+  border: 2px solid #C82E44;
+  color: #C82E44;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.quote-nav.prev {
+  left: 1rem;
+}
+
+.quote-nav.next {
+  right: 1rem;
+}
+
+.quote-dots {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.quote-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 6px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.quote-dots span.active {
+  background: #C82E44;
+  opacity: 1;
+}
+
+
 footer {
   text-align: center;
   padding: 1rem 1rem;
@@ -385,8 +489,8 @@ footer {
   }
 
   .scroll-graphic {
-    flex: 1;
-    height: 80vh;
+    flex: 0.9;
+    height: 70vh;
     position: sticky;
     top: 10vh;
     transform: none;
@@ -395,8 +499,9 @@ footer {
   }
 
   .scroll-steps {
-    flex: 1;
+    flex: 1.1;
     margin-left: 2rem;
+    max-width: none;
   }
 
   .step {
