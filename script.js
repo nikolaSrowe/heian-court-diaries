@@ -1,11 +1,14 @@
 const scroller = scrollama();
 
 const images = [
-  "assets/main-art.jpg",
-  "assets/murasaki-tale-genji.jpg", 
-  "assets/Izumi_Shikibu.png",
-  "assets/lady-sarashina.jpg",
-  "assets/heian-art.jpg"
+  "assets/heian-court-courting.jpg",
+  "assets/murasaki_shikibu.webp", 
+  "assets/Tale-of-Genji.jpg",
+  "assets/court-lady.jpg",
+  "assets/heian-ceremony.jpg",
+  "assets/woman-and-man.jpg",
+  "assets/ladies-inside.jpg",
+  "assets/heian-woman.jpg"
 ];
 
 function init() {
@@ -53,5 +56,31 @@ function handleStepExit(response) {
     document.querySelector('.scroll-graphic').classList.remove('is-active');
   }
 }
+
+function handleHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  const content = document.querySelector('.header-content');
+  const scrollTop = window.pageYOffset;
+  const headerHeight = header.offsetHeight;
+
+  // Calculate progress - how far we've scrolled relative to header height
+  const progress = Math.min(scrollTop / (headerHeight * 0.7), 1);
+  
+  // Make header completely transparent when progress is 1
+  header.style.opacity = 1 - progress;
+  
+  // Make content fade out faster than the header
+  content.style.opacity = 1 - (progress * 1.5);
+  content.style.transform = `translateY(${progress * 50}px)`;
+  
+  // Only show header when it hasn't fully scrolled past
+  if (progress >= 1) {
+    header.style.visibility = 'hidden';
+  } else {
+    header.style.visibility = 'visible';
+  }
+}
+
+window.addEventListener('scroll', handleHeaderScroll);
 
 document.addEventListener('DOMContentLoaded', init);
