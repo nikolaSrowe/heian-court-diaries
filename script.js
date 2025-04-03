@@ -11,6 +11,18 @@ const images = [
   "assets/heian-woman.jpg"
 ];
 
+const imageSources = [
+  "https://jaysjapan.wordpress.com/wp-content/uploads/2017/01/ono-no-komachi-at-heian-court.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Murasaki-Shikibu-composing-Genji-Monogatari.png/1200px-Murasaki-Shikibu-composing-Genji-Monogatari.png",
+  "https://images.squarespace-cdn.com/content/v1/58fd82dbbf629ab224f81b68/1577608675618-DTUABZNNLI0QNQTGSNW0/Fuji-Ura-ba---The-Tale-of-Genji.jpg",
+  "https://data.ukiyo-e.org/jaodb/images/Chigusa_Kotani-No_Series-Lady_in_Heian_Court_Litho-00038332-050827-F12.jpg",
+  "https://cdn.britannica.com/79/197879-050-7A111E95/scroll-painting-scene-funeral-ceremony-The-Tale.jpg",
+  "https://i.ytimg.com/vi/Er-H4-vjWw8/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGH8gOSgmMA8=&rs=AOn4CLA05g8CNOIc2ETipEcgzE0jseUxwA",
+  "https://ronins-guide.com/wp-content/uploads/2023/12/Chikanobu-Japanese-women-at-the-Imperial-Palace-reciting-poems-in-Heian-period-1024x536.webp",
+  "https://www.japan-experience.com/sites/default/files/styles/scale_crop_760x556/public/legacy/japan_experience/1522996406993.jpg.webp?itok=8O16bdwt"
+];
+
+
 function init() {
   scroller
     .setup({
@@ -30,9 +42,12 @@ function handleStepEnter(response) {
   const index = response.index;
   const graphic = document.getElementById('graphic');
   graphic.src = images[index];
+
+  const caption = document.getElementById('imageCaption');
+  caption.textContent = `Image source: ${imageSources[index]}`;
+
   document.querySelector('.scroll-graphic').classList.add('is-active');
-  
- 
+
   graphic.style.transform = 'scale(1.03)';
   setTimeout(() => {
     graphic.style.transform = 'scale(1)';
@@ -63,17 +78,11 @@ function handleHeaderScroll() {
   const scrollTop = window.pageYOffset;
   const headerHeight = header.offsetHeight;
 
-  // Calculate progress - how far we've scrolled relative to header height
   const progress = Math.min(scrollTop / (headerHeight * 0.7), 1);
-  
-  // Make header completely transparent when progress is 1
   header.style.opacity = 1 - progress;
-  
-  // Make content fade out faster than the header
   content.style.opacity = 1 - (progress * 1.5);
   content.style.transform = `translateY(${progress * 50}px)`;
   
-  // Only show header when it hasn't fully scrolled past
   if (progress >= 1) {
     header.style.visibility = 'hidden';
   } else {
