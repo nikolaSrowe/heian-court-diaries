@@ -48,7 +48,7 @@ function handleStepEnter(response) {
 
   document.querySelector('.scroll-graphic').classList.add('is-active');
 
-  graphic.style.transform = 'scale(1.03)';
+  graphic.style.transform = 'scale(1.01)';
   setTimeout(() => {
     graphic.style.transform = 'scale(1)';
   }, 300);
