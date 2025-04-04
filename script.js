@@ -4,6 +4,7 @@ const images = [
   "assets/heian-court-courting.jpg",
   "assets/murasaki_shikibu.webp", 
   "assets/Tale-of-Genji.jpg",
+  "assets/Tale-of-Genji.jpg",
   "assets/court-lady.jpg",
   "assets/heian-ceremony.jpg",
   "assets/woman-and-man.jpg",
@@ -14,6 +15,7 @@ const images = [
 const imageSources = [
   "https://jaysjapan.wordpress.com/wp-content/uploads/2017/01/ono-no-komachi-at-heian-court.jpg",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Murasaki-Shikibu-composing-Genji-Monogatari.png/1200px-Murasaki-Shikibu-composing-Genji-Monogatari.png",
+  "https://images.squarespace-cdn.com/content/v1/58fd82dbbf629ab224f81b68/1577608675618-DTUABZNNLI0QNQTGSNW0/Fuji-Ura-ba---The-Tale-of-Genji.jpg",
   "https://images.squarespace-cdn.com/content/v1/58fd82dbbf629ab224f81b68/1577608675618-DTUABZNNLI0QNQTGSNW0/Fuji-Ura-ba---The-Tale-of-Genji.jpg",
   "https://data.ukiyo-e.org/jaodb/images/Chigusa_Kotani-No_Series-Lady_in_Heian_Court_Litho-00038332-050827-F12.jpg",
   "https://cdn.britannica.com/79/197879-050-7A111E95/scroll-painting-scene-funeral-ceremony-The-Tale.jpg",

@@ -399,29 +399,33 @@ h1 {
   position: relative;
   max-width: 600px;
   margin: 2rem auto;
-  background: #F2EBDE; /*rgba(255, 255, 255, 0.92)*/
-  padding: 2rem 3rem 3rem;
+  background: #F2EBDE;
+  padding: 2rem 3rem 3.5rem;
   border-radius: 20px;
-  overflow: hidden;
-
-  /* new subtle atmospheric shadow */
+  overflow: hidden; /* ✅ This is where overflow is hidden */
   box-shadow: 0 6px 24px rgba(60, 53, 50, 0.15), 0 0 0 1px rgba(200, 46, 68, 0.1);
 }
 
 .quote-track {
   display: flex;
+  flex-wrap: nowrap;
   transition: transform 0.5s ease;
+  will-change: transform;
   width: 100%;
+  /* ❌ DO NOT add overflow here */
 }
 
 .quote-slide {
   flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 2rem;
   font-style: italic;
   text-align: center;
-  padding: 1rem 2rem;
-  box-sizing: border-box;
-  white-space: normal;
+  word-wrap: break-word;
 }
+
+
 
 .quote-nav {
   position: absolute;
@@ -439,15 +443,11 @@ h1 {
   justify-content: center;
   align-items: center;
   padding: 0;
+  z-index: 10;
 }
 
-.quote-nav.prev {
-  left: 1rem;
-}
-
-.quote-nav.next {
-  right: 1rem;
-}
+.quote-nav.prev { left: 1rem; }
+.quote-nav.next { right: 1rem; }
 
 .quote-dots {
   margin-top: 1.5rem;
@@ -469,6 +469,7 @@ h1 {
   background: #C82E44;
   opacity: 1;
 }
+
 
 .image-caption {
   font-size: 0.55rem;
